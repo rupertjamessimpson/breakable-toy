@@ -4,9 +4,10 @@ class Api::V1::PokemonController < ApplicationController
   end
 
   def create
+    binding.pry
     pokemon = Pokemon.new({
       name: params[:name],
-      user: current_user
+      user_id: current_user.id
     })
   
     if pokemon.save
