@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const PokemonTile = (props) => {
   const [pokemon, setPokemon] = useState({})
@@ -28,9 +29,11 @@ const PokemonTile = (props) => {
   }
 
   return(
-    <div>
-      <img src={sprite}/>
-    </div>
+    <Link to={`/pokemon/${props.name}`}>
+      <div>
+        <img src={sprite}/>
+      </div>
+    </Link>
   )
 }
 
