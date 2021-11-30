@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "homes#index"
 
   resources :pokemon, only: [:index, :show, :create]
+  resources :usage, only: [:index]
 
   namespace :api do
     namespace :v1 do

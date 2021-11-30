@@ -1,0 +1,17 @@
+<% @pokemon.each do |hash| %>
+  <% species = "" %>
+
+  <% if hash[:name] === "Thundurus-Incarnate" || hash[:name] === "Tornadus-Incarnate" || hash[:name] === "Landorus-Incarnate" %>
+    <% species = hash[:name].gsub("-Incarnate", "")%>
+  <% else %>
+    <% species = hash[:name].gsub(" ", "") %>
+  <% end %>
+
+  <p>
+    <a href='/pokemon/<%=hash[:name].downcase%>'>
+    <img alt="<%=hash[:name]%>" 
+    src="https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/<%=species.downcase%>.png"> 
+    <%=hash[:name]%>- Usage: <%= hash[:usage] %>
+    </a>
+  </p>
+<% end %>
