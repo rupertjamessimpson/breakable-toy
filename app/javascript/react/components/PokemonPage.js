@@ -5,7 +5,7 @@ import PokemonForm from './PokemonForm'
 const PokemonPage = () => {
   const [usersPokemon, setUsersPokemon] = useState([])
 
-  if (document.getElementsByTagName("a")[2].textContent == "Sign In") {
+  if (document.getElementsByTagName("a")[3].textContent == "Sign In") {
     return (
       <div>
         Sign in to add some Pokemon!

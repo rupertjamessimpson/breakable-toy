@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PokemonForm from './PokemonForm'
 import ReviewTile from './ReviewTile'
+import { Chart } from 'react-google-charts'
 
 const PokemonShow = (props) => {
 
@@ -96,8 +97,43 @@ const PokemonShow = (props) => {
       </div>
       <div>
       <h3>Stats:</h3>
-        {stats}
-      </div>
+      </div>     
+
+      <Chart
+  width={'500px'}
+  height={'300px'}
+  chartType="BarChart"
+  loader={<div>Loading Chart</div>}
+  data={[
+    [
+      'Element',
+      'Base Stat',
+      { role: 'style' },
+      {
+        sourceColumn: 0,
+        role: 'annotation',
+        type: 'string',
+        calc: 'stringify',
+      },
+    ],
+    ['HP', parseInt(stats[0]), 'light-green', parseInt(stats[0])],
+    ['Attack', parseInt(stats[1]), 'silver', parseInt(stats[1])],
+    ['Defense', parseInt(stats[2]), 'gold', parseInt(stats[2])],
+    ['Sp. Attack', parseInt(stats[3]), 'color: #e5e4e2', parseInt(stats[3])],
+    ['Sp. Defense', parseInt(stats[4]), 'color: #e5e4e2', parseInt(stats[4])],
+    ['Speed', stats[5], 'color: #e5e4e2', parseInt(stats[5])]
+  ]}
+  options={{
+    title: 'Base Stats',
+    width: 400,
+    height: 280,
+    bar: { groupWidth: '95%' },
+    legend: { position: 'none' },
+  }}
+  // For tests
+  rootProps={{ 'data-testid': '6' }}
+/>
+
       <div>
       <h3>Discussion:</h3>
         {reviewsArray}
