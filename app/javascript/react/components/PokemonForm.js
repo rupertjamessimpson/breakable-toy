@@ -36,12 +36,14 @@ const PokemonForm = () => {
   }
 
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="pokemon"></label>
-        <input type="text" name="pokemon" id="pokemon" value={formData.name} onChange={handleChange}/>
-        <input type="submit" className="button" value="Add Pokemon" />
-      </form>
+    <div className='form-container'>
+      <div className='form'>
+        <form onSubmit={handleSubmit} className='center'>
+          <label htmlFor="pokemon"></label>
+          <input type="text" name="pokemon" id="pokemon" value={formData.name} onChange={handleChange}/>
+          <input type="submit" className="button" value="Add Pokemon" />
+        </form>
+      </div>
     </div>
   )
 }

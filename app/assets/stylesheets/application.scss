@@ -16,7 +16,104 @@
 
  */
 
- body {
-  background-image: url("https://external-preview.redd.it/QCOQdOAT2i6FkmqY6fDnUHOPcruDr46qki-z4M0B66M.png?auto=webp&s=973c53799dc7917794a2ed400e6ccef1a1c419db");
-  background-size: 1200px;
+body {
+  background-image: image-url("breakable-toy-bg.png");
+  background-size: 1000px;
+}
+
+.usage-tile {
+  border-style: double;
+  width: 350px;
+  margin: auto;
+}
+
+.top-bar {
+  text-align: center;
+}
+
+.pokemon-container {
+  margin-top: 220px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.pokemon-show-container {
+  font-family: 'VT323', monospace;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.usage-container {
+  display: flex;
+}
+
+.home-container {
+  text-align: center;
+}
+
+.rupe {
+  margin-top: 170px;
+}
+
+.logo {
+  margin-top: 40px;
+}
+
+.pokemon-info {
+  text-align: center;
+}
+
+.pokemon-name {
+  text-align: center;
+  font-family: 'VT323', monospace;
+}
+
+.stat-chart {
+  text-align: center;
+}
+
+.review-container {
+  border-style: groove;
+}
+
+.review-tile {
+  border-top: groove;
+}
+
+.form {
+  text-align: center;
+  width: 500px;
+}
+
+.review-form {
+  border-top: groove;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'VT323', monospace;
+}
+
+.center {
+  text-align: center;
+}
+
+.sign-in {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.sign-in-text {
+  font-family: 'VT323', monospace;
+}
+
+.form-container {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }

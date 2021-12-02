@@ -31,7 +31,10 @@ const PokemonTile = (props) => {
   return(
     <Link to={`/pokemon/${props.name}`}>
       <div>
-        <img src={sprite}/>
+        <img src={sprite}
+        width="150"
+        height="150"
+        />
       </div>
     </Link>
   )
