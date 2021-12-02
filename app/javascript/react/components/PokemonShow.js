@@ -50,21 +50,30 @@ const PokemonShow = (props) => {
     fetchReviews()
   }, [])
 
+  const Cap = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
   let sprite
   if (pokemon.sprites) {
     sprite = pokemon.sprites.front_default
   }
 
+  let pokemon_name = ""
+  if (pokemon.name) {
+    pokemon_name = Cap(pokemon.name)
+  }
+
   let types = []
   if (pokemon.types) {
     pokemon.types.forEach(type =>
-      types.push(`${type.type.name} `))
+      types.push(`${Cap(type.type.name)} `))
   }
 
   let abilities = []
   if (pokemon.abilities) {
     pokemon.abilities.forEach(ability =>
-      abilities.push(`${ability.ability.name} `))
+      abilities.push(`${Cap(ability.ability.name)} `))
   }
 
   let stats = []
@@ -83,60 +92,72 @@ const PokemonShow = (props) => {
 
   return (
     <div>
-      {pokemon.name}
-      <div>
-        <img src={sprite}/>
-      </div>
-      <div>
-      <h3>Type:</h3>
-        {types}
-      </div>
-      <div>
-      <h3>Abilities:</h3>
-        {abilities}
-      </div>
-      <div>
-      <h3>Stats:</h3>
-      </div>     
+      <h1 className='pokemon-name'> {pokemon_name} </h1>
+      <div  className='pokemon-show-container'>
 
-      <Chart
-  width={'500px'}
-  height={'300px'}
-  chartType="BarChart"
-  loader={<div>Loading Chart</div>}
-  data={[
-    [
-      'Element',
-      'Base Stat',
-      { role: 'style' },
-      {
-        sourceColumn: 0,
-        role: 'annotation',
-        type: 'string',
-        calc: 'stringify',
-      },
-    ],
-    ['HP', parseInt(stats[0]), 'light-green', parseInt(stats[0])],
-    ['Attack', parseInt(stats[1]), 'silver', parseInt(stats[1])],
-    ['Defense', parseInt(stats[2]), 'gold', parseInt(stats[2])],
-    ['Sp. Attack', parseInt(stats[3]), 'color: #e5e4e2', parseInt(stats[3])],
-    ['Sp. Defense', parseInt(stats[4]), 'color: #e5e4e2', parseInt(stats[4])],
-    ['Speed', stats[5], 'color: #e5e4e2', parseInt(stats[5])]
-  ]}
-  options={{
-    title: 'Base Stats',
-    width: 400,
-    height: 280,
-    bar: { groupWidth: '95%' },
-    legend: { position: 'none' },
-  }}
-  // For tests
-  rootProps={{ 'data-testid': '6' }}
-/>
+        <div className='pokemon-info'>
+          <div>
+          <h3>Type:</h3>
+            {types}
+          </div>
+          <div>
+            <img src={sprite}
+            height="200"
+            width="200"/>
+          </div>
+          <div>
+          <h3>Abilities:</h3>
+            {abilities}
+          </div> 
+        </div>
 
-      <div>
-      <h3>Discussion:</h3>
-        {reviewsArray}
+        <div className='stat-chart'>
+          <h3>Stats:</h3>  
+          <Chart
+            width={'500px'}
+            height={'300px'}
+            chartType="BarChart"
+            loader={<div>Loading Chart</div>}
+            data={[
+              [
+                'Element',
+                'Base Stat',
+                { role: 'style' },
+                {
+                  sourceColumn: 0,
+                  role: 'annotation',
+                  type: 'string',
+                  calc: 'stringify',
+                },
+              ],
+              ['HP', parseInt(stats[0]), 'color: #ffadad', parseInt(stats[0])],
+              ['Attack', parseInt(stats[1]), 'color: #ffd6a5', parseInt(stats[1])],
+              ['Defense', parseInt(stats[2]), 'color: #fdffb6', parseInt(stats[2])],
+              ['Sp. Attack', parseInt(stats[3]), 'color: #caffbf', parseInt(stats[3])],
+              ['Sp. Defense', parseInt(stats[4]), 'color: #9bf6ff', parseInt(stats[4])],
+              ['Speed', stats[5], 'color: #a0c4ff', parseInt(stats[5])]
+            ]}
+            options={{
+              title: `Base Stats:`,
+              width: 400,
+              height: 280,
+              backgroundColor: 'transparent',
+              bar: { groupWidth: '95%' },
+              legend: { position: 'none' },
+            }}
+            // For tests
+            rootProps={{ 'data-testid': '6' }}
+          />
+        </div>
+
+        <div className='review-container'>
+          <h3>Discussion:</h3>
+            {reviewsArray}
+          <form className='review-form'>
+            <input type="text" name="pokemon" id="pokemon"/>
+            <input type="submit" className="button" value="Post" />
+          </form>
+        </div>
       </div>
     </div>
   )

@@ -7,11 +7,14 @@
     <% species = hash[:name].gsub(" ", "") %>
   <% end %>
 
-  <p>
+<div class="usage-container">
+  <p class="usage-tile">
     <a href='/pokemon/<%=hash[:name].downcase%>'>
     <img alt="<%=hash[:name]%>" 
     src="https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/<%=species.downcase%>.png"> 
     <%=hash[:name]%>- Usage: <%= hash[:usage] %>
     </a>
   </p>
+</div>
+
 <% end %>

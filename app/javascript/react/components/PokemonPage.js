@@ -7,8 +7,8 @@ const PokemonPage = () => {
 
   if (document.getElementsByTagName("a")[3].textContent == "Sign In") {
     return (
-      <div>
-        Sign in to add some Pokemon!
+      <div className="sign-in">
+        <h1 className='sign-in-text'>Sign in to add some Pokemon!</h1>
       </div>
     )
   }
@@ -36,7 +36,7 @@ const PokemonPage = () => {
 
   const newPokemonArray = usersPokemon.map((pokemon) => {
     return (
-      <PokemonTile 
+      <PokemonTile
         key={pokemon.id}  
         name={pokemon.name}
       />
@@ -45,10 +45,10 @@ const PokemonPage = () => {
 
   return (
     <div>
-      <div>
-        <PokemonForm/>
+      <div className='center'>
+        <PokemonForm className='center'/>
       </div>
-      <div>
+      <div className='pokemon-container'>
         {newPokemonArray}
       </div>
     </div>

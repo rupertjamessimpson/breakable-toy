@@ -4,7 +4,6 @@ class Api::V1::PokemonController < ApplicationController
   end
 
   def create
-    binding.pry
     pokemon = Pokemon.new({
       name: params[:name],
       user_id: current_user.id
