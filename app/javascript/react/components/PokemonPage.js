@@ -34,20 +34,35 @@ const PokemonPage = () => {
     fetchUsersPokemon()
   }, [])
 
+  const filterPokemonById = (id) => {
+    setUsersPokemon(usersPokemon.filter(item => item.id !== id))
+  }
+
+  const updatePokemon = (newPokemon) => {
+    setUsersPokemon([...usersPokemon, newPokemon])
+  }
+
   const newPokemonArray = usersPokemon.map((pokemon) => {
+
     return (
       <PokemonTile
+        filterPokemonById={filterPokemonById}
         key={pokemon.id}  
         name={pokemon.name}
+        id={pokemon.id}
       />
     )
   })
 
   return (
     <div>
-      <div className='center'>
-        <PokemonForm className='center'/>
+
+      <div>
+        <PokemonForm 
+        updatePokemon={updatePokemon}
+        />
       </div>
+      
       <div className='pokemon-container'>
         {newPokemonArray}
       </div>

@@ -1,6 +1,16 @@
 class Api::V1::PokemonController < ApplicationController
+  require 'pry'
+
   def index
-    render json: Pokemon.all
+    render json: Pokemon.where(user_id: current_user.id)
+  end
+
+  def show
+    render json: Pokemon.find(params["id"])
+  end
+
+  def destroy
+    Pokemon.destroy(params["id"])
   end
 
   def create
