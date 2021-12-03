@@ -1,6 +1,7 @@
+import { checkPropTypes } from "prop-types"
 import React, { useState, useEffect } from "react"
 
-const PokemonForm = () => {
+const PokemonForm = (props) => {
   const [formData, setFormData] = useState({
     name: ""
   })
@@ -26,10 +27,11 @@ const PokemonForm = () => {
         if (!response.ok) {
           throw(new Error(`${response.status}: ${response.statusText}`))
         }
-
-        const parseFormData = await response.json()
-        setFormData({...formData, parseFormData})
-
+        const createdPokemon = await response.json()
+        props.updatePokemon(createdPokemon)
+        setFormData({
+          name: ""
+        })
       } catch(err) {
         console.error(err)
       }

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :pokemon, only: [:index, :create]
+      resources :pokemon, only: [:index, :destroy, :show, :create]
       resources :reviews, only: [:index, :create]
     end
   end
