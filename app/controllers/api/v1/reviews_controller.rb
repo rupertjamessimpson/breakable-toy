@@ -2,4 +2,18 @@ class Api::V1::ReviewsController < ApplicationController
   def index
     render json: Review.all
   end
+
+  def create
+    review = Review.new({
+      body: params[:name],
+      species: params["id"],
+      user_id: current_user.id
+    })
+  
+    if review.save
+      render json: review
+    else
+      render json: { error: review.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
 end

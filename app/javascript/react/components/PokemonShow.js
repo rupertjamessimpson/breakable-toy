@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PokemonForm from './PokemonForm'
 import ReviewTile from './ReviewTile'
 import { Chart } from 'react-google-charts'
+import ReviewForm from './ReviewForm'
 
 const PokemonShow = (props) => {
 
@@ -153,10 +154,7 @@ const PokemonShow = (props) => {
         <div className='review-container'>
           <h3>Discussion:</h3>
             {reviewsArray}
-          <form className='review-form'>
-            <input type="text" name="pokemon" id="pokemon"/>
-            <input type="submit" className="button" value="Post" />
-          </form>
+            <ReviewForm/>
         </div>
       </div>
     </div>
