@@ -2,7 +2,10 @@ import { checkPropTypes } from "prop-types"
 import React, { useState, useEffect } from "react"
 
 const ReviewForm = (props) => {
+
+
   const [formData, setFormData] = useState({
+    species: props.species,
     body: ""
   })
   
@@ -10,6 +13,7 @@ const ReviewForm = (props) => {
     event.preventDefault()
     setFormData({...formData, 
       body: event.currentTarget.value})
+      console.log(formData)
   }
 
   const handleSubmit = async (event) => {
@@ -27,7 +31,10 @@ const ReviewForm = (props) => {
         if (!response.ok) {
           throw(new Error(`${response.status}: ${response.statusText}`))
         }
+        const createdReview = await response.json()
+        props.updateReviews(createdReview)
         setFormData({
+          species: props.species,
           body: ""
         })
       } catch(err) {
@@ -35,14 +42,25 @@ const ReviewForm = (props) => {
       }
   }
 
+
   return(
     <div className='form-container'>
       <div className='form'>
-        <form onSubmit={handleSubmit} className='center'>
-          <label htmlFor="pokemon"></label>
-          <input type="text" name="pokemon" id="pokemon" value={formData.name} onChange={handleChange}/>
+
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="pokemon">
+          <input type="text" name="pokemon" id="pokemon" value={formData.body} onChange={handleChange}/>
+          </label>
+
+          <label htmlFor="species">
+          <input type="hidden" name="species" id="species" value={formData.species}/>
+          </label>
+
           <input type="submit" className="button" value="Add Comment" />
+
+          
         </form>
+
       </div>
     </div>
   )
