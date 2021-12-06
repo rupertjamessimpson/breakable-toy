@@ -51,6 +51,10 @@ const PokemonShow = (props) => {
     fetchReviews()
   }, [])
 
+  const updateReviews = (newReview) => {
+    setReviews([...reviews, newReview])
+  }
+
   const Cap = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
@@ -154,7 +158,10 @@ const PokemonShow = (props) => {
         <div className='review-container'>
           <h3>Discussion:</h3>
             {reviewsArray}
-            <ReviewForm/>
+            <ReviewForm
+            species={species}
+            updateReviews={updateReviews}
+            />
         </div>
       </div>
     </div>

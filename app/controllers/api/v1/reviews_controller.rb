@@ -1,12 +1,14 @@
 class Api::V1::ReviewsController < ApplicationController
+  require 'pry'
+
   def index
     render json: Review.all
   end
 
   def create
     review = Review.new({
-      body: params[:name],
-      species: params["id"],
+      body: params[:body],
+      species: params[:species],
       user_id: current_user.id
     })
   
