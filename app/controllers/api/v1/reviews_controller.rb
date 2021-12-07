@@ -1,6 +1,4 @@
 class Api::V1::ReviewsController < ApplicationController
-  require 'pry'
-
   def index
     render json: Review.all
   end

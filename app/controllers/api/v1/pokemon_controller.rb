@@ -1,6 +1,4 @@
 class Api::V1::PokemonController < ApplicationController
-  require 'pry'
-
   def index
     render json: Pokemon.where(user_id: current_user.id)
   end
