@@ -1,7 +1,6 @@
 class UsageController < ApplicationController
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
 
   def index
     doc = Nokogiri::HTML(URI.open("https://www.pikalytics.com/"))
