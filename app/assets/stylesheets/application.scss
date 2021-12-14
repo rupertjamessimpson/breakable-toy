@@ -16,10 +16,24 @@
 
  */
 
-// body {
-//   background-image: image-url("breakable-toy-bg.png");
-//   background-size: 1000px;
-// }
+ body {
+  background-image: url("https://pokemon-bucket-breakable-toy.s3.us-east-2.amazonaws.com/51718113549_87a6005237_o.png");
+  background-size: 1000px;
+}
+
+h2 {
+  font-family: 'VT323', monospace;
+  text-align: center;
+}
+
+.sign-in-container {
+  text-align: center;
+}
+
+.field {
+  width: 550px;
+  margin: auto;
+}
 
 .usage-tile {
   border-style: double;
@@ -56,7 +70,7 @@
 }
 
 .rupe {
-  margin-top: 170px;
+  margin-top: 190px;
 }
 
 .logo {
@@ -129,3 +143,4 @@ h3 {
   font-size: 16px;
   border-radius: 4px;
 }
+
