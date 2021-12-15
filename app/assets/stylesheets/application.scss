@@ -21,8 +21,23 @@
   background-size: 1000px;
 }
 
+.dev-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
 h2 {
   font-family: 'VT323', monospace;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'VT323', monospace;
+  text-align: center;
+}
+
+.developer {
   text-align: center;
 }
 
