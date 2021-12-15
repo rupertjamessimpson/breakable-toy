@@ -35,6 +35,10 @@
   </div>
 </div>
 
+<div class="dev-link">
+    <a class="dev-button"><%= link_to "About the Developer", developer_index_path %></a>
+<div>
+
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
